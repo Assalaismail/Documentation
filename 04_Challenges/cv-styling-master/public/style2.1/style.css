@@ -1,0 +1,401 @@
+
+*{
+    margin:0;
+    padding:0;
+}
+header {
+   
+    padding-top: 20px;
+   margin-right: 400px;
+    margin-left: 400px;
+    padding-bottom: 15px;
+    border-bottom:1px solid grey; 
+   
+}
+
+#about{
+    margin-left: 400px;
+    margin-top: 20px;
+    width: 40%;
+    opacity:0.6;
+}
+
+ img {
+    position:absolute;
+    height:110px;
+    width:110px;
+    top: 2em;
+    right:35em;
+    transform: rotate(-20deg);
+}
+
+header div hgroup h2 {
+    display:none;
+}
+
+.content h3 {
+    border-right:1px solid grey;
+    grid-row:1/3;
+}
+
+
+#about h3{
+    display:none;
+}
+
+#competencies {
+   margin-top: 100px;
+  margin-left:400px;
+    display:grid;
+    grid-template-columns: 10% 60%;
+    font-style: italic;
+}
+
+
+.skills {
+    display:flex;
+}
+
+.skill {
+    margin:1em;
+  
+}
+
+.skills-primary .skill {
+    padding:0.7em;
+    color:white;
+    background-color:darkcyan;
+    width: 140px;  
+}
+
+.skills-primary :nth-child(1) ::after{
+    content:"   ★★★";
+    padding-left: 50px;
+}
+
+.skills-primary :nth-child(2) ::after{
+    content:" ★★";
+    padding-left: 70px;
+}
+
+.skills-primary :nth-child(3) ::after{
+    content:" ★";
+    padding-left: 50px;
+}
+
+.skills-secondary .skill {
+    font-size:0.7em;
+    padding:0.9em;
+    margin-left:20px;
+    color:white;
+    background-color:darkcyan;
+    width: 140px;  
+    height: 10px;
+    
+}
+
+.skills-secondary :nth-child(1) ::after{
+    content:" ★★★★★";
+    padding-left: 50px;
+}
+
+.skills-secondary :nth-child(2) ::after{
+    content:" ★★★";
+    padding-left: 80px;
+}
+.skills-secondary :nth-child(3) ::after{
+    content:" ★★★★";
+    padding-left: 50px;
+}
+
+#experiences {
+    display:grid;
+    grid-template-columns: 10% 55%;
+   margin-top: 50px;
+    margin-left:400px;
+}
+
+.experience {
+   
+    display:grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.experience-details{
+    color: grey;
+}
+.experience-type {
+    color:darkcyan;
+    margin-left: 5px;
+    margin-right: 90px;
+    padding-right: 400px;
+}
+
+.experience-description {
+    grid-column: 1/3;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.experience-institution {
+    display:none;
+}
+
+#education{
+    display:grid;
+    
+    grid-template-columns: 10% 55%;
+    margin-top: 50px;
+    margin-left:400px;
+}
+
+#hobbies{
+    display:grid;
+    grid-template-columns: 10% 55%;
+    margin-top: 50px;
+    margin-left:400px;
+    margin-bottom: 20px;
+}
+
+#hobbies ul {
+    margin-left:40px;
+}
+
+#contact {
+    display:none;
+  
+}
+
+#hobbies  ul li:nth-child(1):after {
+    position: absolute;
+    content: '';
+    background-image: url(email.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 70px;
+    height: 70px;
+    margin-top: 100px;
+    margin-left: -135px;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+    cursor: pointer;
+}
+
+
+
+#hobbies  ul li:nth-child(2):after {
+    position: absolute;
+    content: '';
+    background-image: url(phone.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 70px;
+    height: 70px;
+    margin-top: 80px;
+    margin-left: 15px;
+    padding-bottom: 50px;
+    cursor: pointer;
+   
+}
+#hobbies  ul li:nth-child(3):after {
+    position: absolute;
+    content: '';
+    background-image: url(github.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 70px;
+    height: 70px;
+    margin-top: 60px;
+  margin-left: 75px;
+  padding-bottom: 50px;
+  cursor: pointer;
+
+}
+#hobbies ul li:nth-child(3):before {
+    position: absolute;
+    content: '';
+    background-image: url(facebook.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 70px;
+    height: 70px;
+    margin-left: 250px;
+    margin-top: 60px;
+    padding-bottom: 50px;
+    cursor: pointer;
+  
+}
+@media only screen and (max-width:700px) {
+    *{
+        margin:0;
+        padding:0;
+    }
+
+    header{
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-left: 22px;
+        border-bottom:1px solid grey; 
+     
+    }
+
+    #about{
+        margin-left: 0px;
+        margin-top: 20px;
+        width: 450px;
+        padding-left: 30px;
+       
+    }
+    img {
+        display:none;
+    }
+
+   #competencies {
+        margin-left:0px;
+        grid-template-columns: 0.3fr;
+        width: 200px;
+        margin-right: 500px;
+        padding-left: 30px;
+        
+
+     }
+
+    .skills-primary .skill {
+        padding:0.4em;
+        color:white;
+        background-color:darkcyan;
+        width: 100px;  
+    
+    }
+    
+    .skills-primary :nth-child(1) ::after{
+        content:"   ★★★";
+        padding-left: 10px;
+    }
+    
+    .skills-primary :nth-child(2) ::after{
+        content:" ★★";
+        padding-left: 40px;
+    }
+    
+    .skills-primary :nth-child(3) ::after{
+        content:" ★";
+        padding-left: 15px;
+    }
+    
+    .skills-secondary .skill {
+        font-size:0.7em;
+        padding:0.8em;
+        color:white;
+        background-color:darkcyan;
+        width: 100px;  
+        height: 15px;
+        
+    }
+    
+    .skills-secondary :nth-child(1) ::after{
+        content:" ★★★★★";
+        padding-left: 10px;
+    }
+    
+    .skills-secondary :nth-child(2) ::after{
+        content:" ★★★";
+        padding-left: 40px;
+    }
+    .skills-secondary :nth-child(3) ::after{
+        content:" ★★★★";
+        padding-left: 10px;
+    }
+    
+  
+    #experiences {
+        margin-top: 30px;
+        margin-left:0px;
+        width: 200px;
+        margin-right: 0px;
+        padding-left: 30px;
+
+    }
+    
+    .experience{
+        margin-top: 30px;
+    }
+    .experience-details{
+        color: grey;
+    }
+    .experience-type {
+        color:darkcyan;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-right: 0px;
+    }
+    
+    .experience-description {
+        margin-left: 0px;
+        margin-bottom: 0px;
+        width:450px;
+    }
+    
+    .experience-institution {
+        display:none;
+    }
+.experience-details{
+    float: right;
+    margin-right: 0em;
+    
+    margin-left: 150px;
+}
+
+    #education{
+        margin-left:0px;
+        padding-left: 30px;
+    }
+
+    #hobbies{
+      
+        margin-top: 50px;
+        margin-left:0px;
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+
+
+    .content h3 {
+    
+        border-right:0px solid grey    }
+
+    #experiences,
+    #education,
+    #hobbies {
+        display: block;
+    }
+
+    #competencies h3{
+        border-bottom: 1px solid black;
+        margin-right: 325px;
+    }
+
+    #experiences h3{
+        border-bottom: 1px solid black;
+        margin-right: 75px;
+    }
+
+    #education h3{
+        border-bottom: 1px solid black;
+        margin-right: 330px;
+    }
+
+    #hobbies h3{
+        border-bottom: 1px solid black;
+        margin-right: 330px;
+    }
+
+   
+ 
+ 
+}
+
+
