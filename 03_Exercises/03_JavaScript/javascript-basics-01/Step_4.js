@@ -1,5 +1,12 @@
-let name1 = prompt("What's your last name ?")
-let surname= prompt("What's your first name ?")
-let city= prompt("What is your city ?")
 
-alert("Hello, " + surname + " " + name1 + "\n Oh your city is " + city + "!" );
+function a()
+{
+  name1 = document.getElementById(
+    "name").value;
+  name2 = document.getElementById(
+    "surname").value;
+    city= document.getElementById("city").value;
+  alert("Hello, " + (document.getElementById(
+    "result").innerHTML = name1 + name2) + "\n Oh your city is " + 
+    (document.getElementById("result").innerHTML = city));
+}
