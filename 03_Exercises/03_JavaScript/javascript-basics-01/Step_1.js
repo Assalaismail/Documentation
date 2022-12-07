@@ -1,4 +1,4 @@
 
 
-    var  name1 =" Assala"
+    var  name1;
     alert(" My name is :" + name1);
