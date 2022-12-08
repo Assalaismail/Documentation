@@ -57,7 +57,7 @@ describe('Character Strings: ', () => {
       expect(result).toEqual('Rome wasn\'t built in a day')
     })
   })
-
+//done
   describe('IsString', () => {
     it('Checks if a passed parameter is a string', () => {
       const result = IsString('Is this a string?')
