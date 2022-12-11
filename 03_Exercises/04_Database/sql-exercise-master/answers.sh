@@ -1,12 +1,12 @@
 #Basic Queries
-select * from students
-select * from students where Age>30
-select * from students where Gender='F' AND age=30
-select Points from students where name='Alex'
-INSERT INTO students (ID, Name, Age, Gender, Points)
-VALUES (7, 'Assala', '22', 'F', '600')
-UPDATE students set Points= 350 where Name='Basma'
-UPDATE students set Points= 190 where Name='Alex'
+select Name from students;
+select * from students where Age>30;
+select * from students where Gender='F' AND age=30;
+select Points from students where name='Alex';
+INSERT INTO students (ID, Name, Age, Gender, Points);
+VALUES (7, 'Assala', '22', 'F', '600');
+UPDATE students set Points=(Points+50) where Name='Basma';
+UPDATE students set Points=(POints-10) where Name='Alex';
 
 #Creating table
 create table graduates(
@@ -40,3 +40,11 @@ FROM companies
 INNER JOIN employees on companies.Name=employees.Company 
 WHERE employees.Role='Graphic Designer';
 
+
+#count&filter
+
+SELECT name, MAX(Points) from students;
+SELECT AVG(Points) FROM students;
+SELECT COUNT(Name) FROM students where Points=500;
+SELECT name from students where name LIKE ('%S%');
+SELECT Name FROM students ORDER BY points DESC;
