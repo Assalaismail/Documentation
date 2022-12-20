@@ -15,13 +15,13 @@ function App() {
 <div className="cloud">
      <img src={mostcloud} alt='mostly-clouded' className='svg'/>
 
-          <h3>Overcast clouds</h3>
+          <h3>overcast clouds</h3>
           <h2>
             Temperature <span> 10 &deg; to 11 &deg; C</span>
           </h2>
           <p>
-            Humidity <span> 78% </span>{" "}
-            Pressure
+          <strong>  Humidity </strong><span> 78% </span>{" "}
+           <strong> Pressure</strong>
             <span> 1008.48</span>
           </p>
   </div>
@@ -93,46 +93,6 @@ function App() {
 
             </div>
             </div>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Hello, My name is Assala
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-
      
     </div>
   ); 
