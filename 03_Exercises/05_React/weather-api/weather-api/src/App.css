@@ -49,6 +49,7 @@ align-items: center;
   width: 300px;
   font-family: Raleway;
   text-decoration: none;
+  outline: none;
 }
 
 .form1 .text-city::placeholder{
@@ -124,10 +125,5 @@ align-items: center;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ 
 } 

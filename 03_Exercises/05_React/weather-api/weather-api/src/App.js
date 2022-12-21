@@ -2,16 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 import mostcloud from './weather-icons/mostlycloudy.svg';
 import sunclear from './weather-icons/clear.svg';
+
 function App() {
   return (
     <div className="App">
 
 <form className='form1'>
         <input type="text" placeholder="Type in a city name" className="text-city"/>
-        <input type="submit" value="FIND WEATHER" className="button"/>
-     </form>
-     
-    
+        <button type="button" className="button">FIND WEATHER</button>
+         </form>
+
 <div className="cloud">
      <img src={mostcloud} alt='mostly-clouded' className='svg'/>
 
@@ -26,8 +26,9 @@ function App() {
           </p>
   </div>
 
+
   <div className="small">
-          <div class="time">
+          <div className="time">
             <div>
               <div>03:00</div>
               <div>
