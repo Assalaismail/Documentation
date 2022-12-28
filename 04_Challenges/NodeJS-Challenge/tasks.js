@@ -90,7 +90,8 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log('Ready to help you! you can write exit or quit to exit the app')
+  console.log('Ready to help you! you can write exit or quit to exit the app OR')
+  console.log('say hello + what do you want')
 }
 
 
