@@ -81,7 +81,11 @@ function quit(){
   process.exit();
 }
 
-//help command 
+/**
+ *help command
+ *
+ * @returns {void}
+ */
 function help(){
   console.log('ready to help you!')
 }
