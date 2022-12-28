@@ -120,7 +120,6 @@ const removeLast = (languages) => {
 const convertStrToArr = (social_arr) => {
    var x= social_arr.split(',');
    return x;
-
 }
 
 const convertArrToStr = (languages) => {

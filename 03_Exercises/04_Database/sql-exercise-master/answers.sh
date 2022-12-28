@@ -40,7 +40,6 @@ FROM companies
 INNER JOIN employees on companies.Name=employees.Company 
 WHERE employees.Role='Graphic Designer';
 
-
 #count&filter
 
 SELECT name, MAX(Points) from students;

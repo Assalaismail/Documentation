@@ -8,5 +8,5 @@
         x.style.border="3px solid red";
         y.style.border="3px solid red";
     }
-   
+
     }
