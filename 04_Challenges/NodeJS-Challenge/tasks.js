@@ -40,8 +40,8 @@ function onDataReceived(text) {
   else if(text === 'help\n'){
     help()
   }
-  else if(text === 'hello\n'){
-    hello();
+  else if(text === 'hello\n' || text.startsWith("hello ")){
+    hello(text);
   }
   else{
     unknownCommand(text);
@@ -63,11 +63,14 @@ function unknownCommand(c){
 
 /**
  * Says hello
+ * print hello with name (able to take an argument)
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+function hello(text){
+  text = text.replace("\n", "");
+  text = text.trim(" ");
+  console.log(text);
 }
 
 
@@ -89,6 +92,7 @@ function quit(){
 function help(){
   console.log('Ready to help you! you can write exit or quit to exit the app')
 }
+
 
 // The following line starts the application
 startApp("Assala")
