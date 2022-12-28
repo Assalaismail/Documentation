@@ -101,6 +101,7 @@ function quit(){
 function help(){
   console.log('Ready to help you! you can write exit or quit to exit the app OR')
   console.log('say hello + what do you want')
+  console.log('if you want to see the list just write list add or remove an item ')
 }
 
 var arraylist=["add", "remove", "edit"];
@@ -138,9 +139,11 @@ function add(text){
 function remove(text){
   if(text === "remove\n"){
   arraylist.pop();}
-
+  else if(text.substring(7) >= arraylist.length){
+    console.log("Sorry but this index doesn't exist");
+  }
   else{
-    arraylist.splice(text.substring(7)-1,1)};
+    arraylist.splice(text.substring(7)-1,1)}; //remove specific item
 } 
 
 
