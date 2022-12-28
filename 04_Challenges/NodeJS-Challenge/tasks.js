@@ -49,6 +49,9 @@ function onDataReceived(text) {
   else if(text.startsWith("add")){
     add(text);
 }
+else if(text.startsWith("remove")){
+  remove(text);
+}
   else{
     unknownCommand(text);
   }
@@ -126,6 +129,19 @@ function add(text){
   }
     
   }
+
+  /**
+ * remove from list
+ *
+ * @returns {void}
+ */
+function remove(text){
+  if(text === "remove\n"){
+  arraylist.pop();}
+
+  else{
+    arraylist.splice(text.substring(7)-1,1)};
+} 
 
 
 // The following line starts the application
