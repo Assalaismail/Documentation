@@ -43,6 +43,9 @@ function onDataReceived(text) {
   else if(text === 'hello\n' || text.startsWith("hello ")){
     hello(text);
   }
+  else if(text.startsWith("list")){
+   list();
+  }
   else{
     unknownCommand(text);
   }
@@ -92,6 +95,18 @@ function quit(){
 function help(){
   console.log('Ready to help you! you can write exit or quit to exit the app OR')
   console.log('say hello + what do you want')
+}
+
+var arraylist=["add", "remove", "edit"];
+/**
+ * list function
+ *
+ * @returns {void}
+ */
+function list(){
+  for(let i = 0 ; i < arraylist.length ; i++){
+    console.log( i + "." + arraylist[i])
+}
 }
 
 
