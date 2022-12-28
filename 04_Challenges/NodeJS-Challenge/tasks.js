@@ -46,6 +46,9 @@ function onDataReceived(text) {
   else if(text.startsWith("list")){
    list();
   }
+  else if(text.startsWith("add")){
+    add(text);
+}
   else{
     unknownCommand(text);
   }
@@ -108,6 +111,21 @@ function list(){
     console.log( i + "." + arraylist[i])
 }
 }
+
+/**
+ * add task
+ *
+ * @returns {void}
+ */
+function add(text){
+  if(text.substring(4) === "" ) {
+    console.log("ERROR");
+  }
+  else{
+   arraylist.push(text.substring(4).trim());
+  }
+    
+  }
 
 
 // The following line starts the application
