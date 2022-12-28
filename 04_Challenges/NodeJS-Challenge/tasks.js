@@ -87,7 +87,7 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log('ready to help you!')
+  console.log('Ready to help you! you can write exit or quit to exit the app')
 }
 
 // The following line starts the application
