@@ -52,6 +52,9 @@ function onDataReceived(text) {
 else if(text.startsWith("remove")){
   remove(text);
 }
+else if(text.startsWith("edit")){
+  edit(text);
+}
   else{
     unknownCommand(text);
   }
@@ -101,10 +104,11 @@ function quit(){
 function help(){
   console.log('Ready to help you! you can write exit or quit to exit the app OR')
   console.log('say hello + what do you want')
-  console.log('if you want to see the list just write list add or remove an item ')
+  console.log('if you want to see the list just write list')
+  console.log('if you want to add or remove an item: create add or remove')
 }
 
-var arraylist=["add", "remove", "edit"];
+var arraylist=["Jan", "Feb", "Mar", "Apr", "May"];
 /**
  * list function
  *
@@ -122,11 +126,12 @@ function list(){
  * @returns {void}
  */
 function add(text){
-  if(text.substring(4) === "" ) {
-    console.log("ERROR");
+  if(text === "add\n" || text.substring(5)=== "") {
+    console.log("ERROR!");
   }
   else{
    arraylist.push(text.substring(4).trim());
+   console.log("Successfully added!");
   }
     
   }
@@ -139,12 +144,56 @@ function add(text){
 function remove(text){
   if(text === "remove\n"){
   arraylist.pop();}
-  else if(text.substring(7) >= arraylist.length){
+  
+  else if(text.substring(7)-1 >= arraylist.length){
     console.log("Sorry but this index doesn't exist");
   }
   else{
     arraylist.splice(text.substring(7)-1,1)}; //remove specific item
 } 
+/*
+/**
+ * edit
+ *
+ * @returns {void}
+ */
+/*function edit(text){
+  text=text.trim();
+  newtext= text.substring(5).trim();
+  if(newtext.startwith("1")){
+    arraylist.splice(0,1,newtext.substring(1).trim());
+    console.log("done");
+  }
+  else if(newtext!=""){
+   arraylist.splice(list.length-1,1,newtext);
+   console.log("last done");
+  } 
+  else{
+    console.log("ERROR!");
+  }
+}*/
+
+/**
+ *  edit
+ * 
+ * @returns {void}
+ */
+function edit(text){
+  text=text.trim();
+  newtext1=text.substring(5).trim();
+  newtext2=text.slice(5,7);
+  if(text==="edit"){
+    console.log("ERROR!");
+  }
+  else if(isNaN(newtext2)){
+    arraylist.splice(arraylist.length-1,1,newtext1);
+    console.log("last done");
+  }
+  else {
+    arraylist.splice(newtext2,1,newtext1.substring(1).trim());
+    console.log("done");
+  }
+  }
 
 
 // The following line starts the application
