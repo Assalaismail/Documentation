@@ -108,7 +108,7 @@ function help(){
   console.log('if you want to add or remove an item: create add or remove')
 }
 
-var arraylist=["Jan", "Feb", "Mar", "Apr", "May"];
+var arraylist=["Jan", "Feb", "Mar", "Apr"];
 /**
  * list function
  *
@@ -116,8 +116,13 @@ var arraylist=["Jan", "Feb", "Mar", "Apr", "May"];
  */
 function list(){
   for(let i = 0 ; i < arraylist.length ; i++){
-    console.log( i + "." + arraylist[i])
-}
+    if(arraylist[i]=="Jan" || arraylist[i]=="Feb"  || arraylist[i]=="Mar" || arraylist[i]=="Apr"){
+      console.log(i + ". " + " [✓] " + arraylist[i]);
+    }
+    else{
+  console.log(i + ". " + " [] " + arraylist[i]);
+    }
+  }
 }
 
 /**
