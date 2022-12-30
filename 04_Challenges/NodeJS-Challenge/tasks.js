@@ -55,6 +55,12 @@ else if(text.startsWith("remove")){
 else if(text.startsWith("edit")){
   edit(text);
 }
+else if(text.startsWith("check")){
+  check(text);
+}
+else if(text.startsWith("uncheck")){
+  uncheck(text);
+}
   else{
     unknownCommand(text);
   }
@@ -106,6 +112,8 @@ function help(){
   console.log('say hello + what do you want')
   console.log('if you want to see the list just write list')
   console.log('if you want to add or remove an item: create add or remove')
+  console.log('if you want to edit any item in the list: write edit with the number you want to modify and what the new item.')
+  console.log('if you want to check or uncheck any item from the list: just write check or uncheck with the number')
 }
 
 var arraylist=["Jan", "Feb", "Mar", "Apr"];
@@ -115,15 +123,13 @@ var arraylist=["Jan", "Feb", "Mar", "Apr"];
  * @returns {void}
  */
 function list(){
+  if(newarr[arraylist.length-1 ]=== undefined){
+    newarr[arraylist.length-1]="[]";}
   for(let i = 0 ; i < arraylist.length ; i++){
-    if(arraylist[i]=="Jan" || arraylist[i]=="Feb"  || arraylist[i]=="Mar" || arraylist[i]=="Apr"){
-      console.log(i + ". " + " [✓] " + arraylist[i]);
-    }
-    else{
-  console.log(i + ". " + " [] " + arraylist[i]);
-    }
+   
+      console.log(i + ". "  + newarr[i] +arraylist[i]);
   }
-}
+  }
 
 /**
  * add task
@@ -148,7 +154,8 @@ function add(text){
  */
 function remove(text){
   if(text === "remove\n"){
-  arraylist.pop();}
+  arraylist.pop();
+  console.log("The last item is removed.")}
   
   else if(text.substring(7)-1 >= arraylist.length){
     console.log("Sorry but this index doesn't exist");
@@ -200,6 +207,50 @@ function edit(text){
   }
   }
 
+  
+
+  /**
+ *  check 
+ * 
+ * @returns {void}
+ */
+const newarr=[];
+for(let i=0; i<arraylist.length; i++){
+newarr[i]= "[]";
+}
+ function check(text){
+
+ new2=text.slice(6,8);
+  if(text==="check\n"){
+    console.log("ERROR!");
+  }
+  else{
+    text= text.trim();
+    text= text.substring(6);
+    newarr[Number(text)]=newarr[Number(text)].replace("[]", "[✓]");
+    console.log("Checked :) Write list to see it.")
+  }
+ }
+
+  /**
+ *  uncheck 
+ * 
+ * @returns {void}
+ */
+
+function uncheck(text){
+  new2=text.slice(8,10);
+  if(text==="uncheck\n"){
+    console.log("ERROR!");
+  }
+  else{
+    text= text.trim();
+    text= text.substring(8);
+    newarr[Number(text)]=newarr[Number(text)].replace("[✓]", "[]");
+    console.log("unchecked :| Write list to see it.")
+  }
+}
 
 // The following line starts the application
 startApp("Assala")
+
