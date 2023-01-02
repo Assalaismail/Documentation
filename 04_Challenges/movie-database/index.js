@@ -26,3 +26,29 @@ app.get('/time', (request, response) => {
     }
     response.send(time1);
 })
+app.get('/hello/<ID>', (request, response) => {
+    const message = `Hello, ${request.params.id}`
+    const final = {
+        status: 200,
+        message: message
+    }
+    response.send(final)
+})
+
+app.get('/search', (request, response) => {
+    if(request.query.s){
+        data = request.query.s;
+        final = {
+            status: 200,
+            message: "ok",
+            data: data
+        }
+    } else {
+        final = {
+            status: 500,
+            message: "you have to provide a search",
+            error: true
+        }
+    }
+    response.send(final);
+})
