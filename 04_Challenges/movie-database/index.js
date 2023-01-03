@@ -1,32 +1,32 @@
 const express = require('express')
-const app = express()
+//const router = express.Router()
 const port = 3000
-
+const app= express()
 
 app.listen(port, () => {
   console.log(`ok!`)
 })
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
     res.send('Hello');
   });
 
-app.get('/test', (req, res) => {
+app.get("/test", (req, res) => {
     res.send({
         status:200, 
         message:"ok"
     });
 })
-app.get('/time', (req, res) => {
+app.get("/time", (req, res) => {
     const time = new Date();
-    const specifictime = `${time.getHours()}:${time.getSeconds()}`;
+    const specifictime = `${time.getHours()}:${time.getMinutes()}`;
     const time1 = {
         status : 200,
         message : specifictime
     }
     res.send(time1);
 })
-app.get('/hello/<ID>', (req, res) => {
+app.get("/hello/:id", (req, res) => {
     const message = `Hello, ${req.params.id}`
     const final = {
         status: 200,
@@ -35,7 +35,7 @@ app.get('/hello/<ID>', (req, res) => {
     res.send(final)
 })
 
-app.get('/search', (req, res) => {
+app.get("/search", (req, res) => {
     if(req.query.s){
         data = req.query.s;
         final = {
@@ -51,4 +51,31 @@ app.get('/search', (req, res) => {
         }
     }
     res.send(final);
+})
+
+const movies = [
+    { title: 'Jaws', year: 1975, rating: 8 },
+    { title: 'Avatar', year: 2009, rating: 7.8 },
+    { title: 'Brazil', year: 1985, rating: 8 },
+    { title: 'الإرهاب والكباب', year: 1992, rating: 6.2 }
+]
+
+
+app.get("/movies/create", (req, res) => {
+    
+})
+
+app.get("/movies/read", (req, res) => {
+    res.send({
+        status: 200, 
+        movie: movies[0]
+    })
+})
+
+app.get("/movies/update", (req, res) => {
+
+})
+
+app.get("/movies/delete", (req, res) => {
+
 })
