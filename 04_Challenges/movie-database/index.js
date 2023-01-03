@@ -35,7 +35,7 @@ app.get("/hello/:id", (req, res) => {
     res.send(final)
 })
 
-app.get("/search", (req, res) => {
+app.get("/search?s=", (req, res) => {
     if(req.query.s){
         data = req.query.s;
         final = {
@@ -68,7 +68,7 @@ app.get("/movies/create", (req, res) => {
 app.get("/movies/read", (req, res) => {
     res.send({
         status: 200, 
-        movie: movies[0]
+        movie: movies
     })
 })
 
