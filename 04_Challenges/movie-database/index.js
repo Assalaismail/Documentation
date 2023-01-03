@@ -7,37 +7,37 @@ app.listen(port, () => {
   console.log(`ok!`)
 })
 
-app.get('/', (request, response) => {
-    response.send('Hello');
+app.get('/', (req, res) => {
+    res.send('Hello');
   });
 
-app.get('/test', (request, response) => {
-    response.send({
+app.get('/test', (req, res) => {
+    res.send({
         status:200, 
         message:"ok"
     });
 })
-app.get('/time', (request, response) => {
+app.get('/time', (req, res) => {
     const time = new Date();
     const specifictime = `${time.getHours()}:${time.getSeconds()}`;
     const time1 = {
         status : 200,
         message : specifictime
     }
-    response.send(time1);
+    res.send(time1);
 })
-app.get('/hello/<ID>', (request, response) => {
-    const message = `Hello, ${request.params.id}`
+app.get('/hello/<ID>', (req, res) => {
+    const message = `Hello, ${req.params.id}`
     const final = {
         status: 200,
         message: message
     }
-    response.send(final)
+    res.send(final)
 })
 
-app.get('/search', (request, response) => {
-    if(request.query.s){
-        data = request.query.s;
+app.get('/search', (req, res) => {
+    if(req.query.s){
+        data = req.query.s;
         final = {
             status: 200,
             message: "ok",
@@ -46,9 +46,9 @@ app.get('/search', (request, response) => {
     } else {
         final = {
             status: 500,
-            message: "you have to provide a search",
-            error: true
+            error: true,
+            message: "you have to provide a search"
         }
     }
-    response.send(final);
+    res.send(final);
 })
