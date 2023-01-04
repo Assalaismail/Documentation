@@ -19,7 +19,7 @@ app.get("/test", (req, res) => {
 })
 app.get("/time", (req, res) => {
     const time = new Date();
-    const specifictime = `${time.getHours()}:${time.getMinutes()}`;
+    const specifictime = `${time.getHours()}:${time.getSeconds()}`;
     const time1 = {
         status : 200,
         message : specifictime
@@ -35,7 +35,7 @@ app.get("/hello/:id", (req, res) => {
     res.send(final)
 })
 
-app.get("/search?s=", (req, res) => {
+app.get("/search", (req, res) => {
     if(req.query.s){
         data = req.query.s;
         final = {
@@ -79,3 +79,54 @@ app.get("/movies/update", (req, res) => {
 app.get("/movies/delete", (req, res) => {
 
 })
+
+app.get("/movies/read/by-date", (req, res) => {
+    const arr = [...movies];
+    const sorted = arr.sort((a, b) => {  
+        if (a.year < b.year){
+            return -1;}
+        else if (a.year > b.year){ 
+            return 1;}
+            else{
+        return 0;}
+    });
+      const result = {
+        status: 200,
+        data: arr
+    }
+    res.send(result);
+})
+
+app.get("/movies/read/by-rating", (req, res) => {
+    const arr = [...movies];
+    arr.sort(function(a, b) {
+        if(a.rating < b.rating){
+           return 1;}
+        else if (a.rating > b.rating){
+             return -1;}
+             else{
+        return 0;}
+    });
+    const result = {
+        status: 200, 
+        data: arr
+    }
+    res.send(result);
+})
+app.get("/movies/read/by-title", (req, res) => {
+    const arr = [...movies];
+    arr.sort(function(a, b) {
+        if(a.title < b.title){
+           return 1;}
+        else if (a.title > b.title){
+             return -1;}
+             else{
+        return 0;}
+    });
+    const result = {
+        status: 200, 
+        data: arr
+    }
+    res.send(result);
+})
+    
