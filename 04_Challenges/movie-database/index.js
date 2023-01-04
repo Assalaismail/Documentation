@@ -172,4 +172,15 @@ app.get("/movies/add", (req,res) => {
                   data: movies})
       }
 });
+
+app.get("/movies/delete/:id", (req,res) => {
+    const id = parseInt(req.params.id);
+    if (id<0 || id>movies.length){
+       res.send({status:404, error:true, message:`the movie ${id} does not exist`})}
+    
+    else{
+        movies.splice(id,1);
+        res.send(movies);
+    }
+})
     
