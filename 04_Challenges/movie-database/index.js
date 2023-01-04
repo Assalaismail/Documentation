@@ -156,10 +156,10 @@ app.get("/movies/add", (req,res) => {
     
     if ((movie.title) == undefined || (movie.year == undefined) || 
     (movie.year.toString().length !== 4) || (isNaN(movie.year))){
-        res.json({status:403,
+        res.send({status:403,
                   error:true, 
                   message:'you cannot create a movie without providing a title and a year'});
-        console.log(res.json)
+        console.log(res.send)
       }
       if(movie.rating == undefined) {
         movie.rating = 4;
@@ -167,7 +167,7 @@ app.get("/movies/add", (req,res) => {
       else{
         movies.push(movie);
         res.send(movie);
-        res.json({status: 200,
+        res.send({status: 200,
                   message: 'ok', 
                   data: movies})
       }
