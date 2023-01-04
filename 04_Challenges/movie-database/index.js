@@ -129,4 +129,21 @@ app.get("/movies/read/by-title", (req, res) => {
     }
     res.send(result);
 })
+
+app.get("/movies/read/id/:id", (req, res) => {
+    if(req.params.id >= 0 && req.params.id<movies.length) {
+        result = {
+            status: 200,
+            data: movies[req.params.id]
+        }
+    } 
+    else {
+        result = {
+            status: 404,
+            error: true,
+            message: `The movie${req.params.id} does not exist`
+        }
+    }
+    res.send(result);
+})
     
