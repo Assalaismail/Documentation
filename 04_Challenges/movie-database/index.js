@@ -176,11 +176,40 @@ app.get("/movies/add", (req,res) => {
 app.get("/movies/delete/:id", (req,res) => {
     const id = parseInt(req.params.id);
     if (id<0 || id>movies.length){
-       res.send({status:404, error:true, message:`the movie ${id} does not exist`})}
+       res.send({status:404, 
+                 error:true, 
+                 message:`the movie ${id} does not exist`})}
     
     else{
         movies.splice(id,1);
         res.send(movies);
     }
 })
-    
+
+app.get("/movies/update/:id(\\d+)", (req,res) => {
+    var id = parseInt(req.params.id);
+    var title = req.query.title;
+    var year = req.query.year;
+    var rating = req.query.rating;
+    if(id <movies.length){
+        if(title===undefined || title===""){
+          title=movies[id].title;
+        }
+        if(year === undefined || year === "" || !(/^\d{4}$/).test(year)){
+        year=movies[id].year;
+        }
+        if (rating === undefined || rating === "") {
+          rating = movies[id].rating;  }
+        movies[id] = {title, year,rating};
+      
+        res.status(200).send(msg={
+                                  data:movies
+        });
+      }
+      else{
+        res.status(404).send(msg={
+                                   error: true,
+                                   message: `the movie ${id} does not exist`,
+          });
+      }
+    })
