@@ -2,6 +2,10 @@ const express = require('express')
 //const router = express.Router()
 const port = 3000
 const app= express()
+const MongoClient= require('mongodb').MongoClient;
+const bodyParser= require('body-parser');
+const db = require('./db.js');
+
 
 app.listen(port, () => {
   console.log(`ok!`)
@@ -9,7 +13,36 @@ app.listen(port, () => {
 
 app.get("/", (req, res) => {
     res.send('Hello');
-  });
+   });
+//step12
+
+const movies = [
+    { title: 'Jaws', year: 1975, rating: 8 },
+    { title: 'Avatar', year: 2009, rating: 7.8 },
+    { title: 'Brazil', year: 1985, rating: 8 },
+    { title: 'الإرهاب والكباب', year: 1992, rating: 6.2 }
+]
+
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+MongoClient.connect(db.url, (err, database) => 
+{  if (err) return console.log(err) 
+     require(app, database);})
+
+module.exports = function(app, db) { 
+     const collection =   app.post('/movies', (req, res) => { 
+            db.collection('movies').insert(movies, (err, result) => 
+             {      if (err) {        
+                 res.send({ 'error': 'An error has occurred' });       } 
+                 else {    
+        res.send(result.ops[0]);      }    });  });};
+
+
+
+app.post("/", (req, res) => {
+  res.send('okii');
+});
+
 
 app.get("/test", (req, res) => {
     res.send({
@@ -52,13 +85,6 @@ app.get("/search", (req, res) => {
     }
     res.send(final);
 })
-
-const movies = [
-    { title: 'Jaws', year: 1975, rating: 8 },
-    { title: 'Avatar', year: 2009, rating: 7.8 },
-    { title: 'Brazil', year: 1985, rating: 8 },
-    { title: 'الإرهاب والكباب', year: 1992, rating: 6.2 }
-]
 
 
 app.get("/movies/create", (req, res) => {
@@ -147,7 +173,7 @@ app.get("/movies/read/id/:id", (req, res) => {
     res.send(result);
 })
 
-app.get("/movies/add", (req,res) => {
+app.post("/movies/add", (req,res) => {
     const movie = {
       title : req.query.title,
       year : req.query.year,
@@ -173,7 +199,7 @@ app.get("/movies/add", (req,res) => {
       }
 });
 
-app.get("/movies/delete/:id", (req,res) => {
+app.delete("/movies/delete/:id", (req,res) => {
     const id = parseInt(req.params.id);
     if (id<0 || id>movies.length){
        res.send({status:404, 
@@ -186,7 +212,7 @@ app.get("/movies/delete/:id", (req,res) => {
     }
 })
 
-app.get("/movies/update/:id(\\d+)", (req,res) => {
+app.put("/movies/update/:id(\\d+)", (req,res) => {
     var id = parseInt(req.params.id);
     var title = req.query.title;
     var year = req.query.year;
@@ -213,3 +239,4 @@ app.get("/movies/update/:id(\\d+)", (req,res) => {
           });
       }
     })
+
