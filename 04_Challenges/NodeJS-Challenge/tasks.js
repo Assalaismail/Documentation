@@ -9,23 +9,13 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-var filename= process.argv[2]? process.argv[2]: "database.json"
+
 function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
-  let fs = require('fs');
-  const path=require('path');
-  try{
-    let data=fs.readFileSync(path.join(__dirname, 'files',filename),'utf-8')
-    let obj=JSON.parse(data)
-    arraylist=obj;
-  }
-  catch(err){
-    console.log(err);
-  }
 }
 
 
