@@ -9,6 +9,7 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
+var filename= process.argv[2]? process.argv[2]: "database.json"
 function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
