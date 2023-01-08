@@ -15,7 +15,18 @@ function startApp(name){
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+  let fs = require('fs');
+  const path=require('path');
+  try{
+    let data=fs.readFileSync(path.join(__dirname, 'files',filename),'utf-8')
+    let obj=JSON.parse(data)
+    arraylist=obj;
+  }
+  catch(err){
+    console.log(err);
+  }
 }
+
 
 
 /**
